@@ -50,9 +50,9 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(api.actions.contacts.get())
   },
   removeContact: () => {
-    dispatch(api.actions.removeContact(props.contactToRemove.id)).then(_ =>
-      props.setContactToRemove(null),
-    )
+    dispatch(api.actions.removeContact(props.contactToRemove.id))
+    .then(_ => props.setContactToRemove(null))
+    .then(_ => dispatch(api.actions.contacts.get()))
   },
   parseContactsFile: file => {
     const request = dispatch(api.actions.parseContactsFile(file))
@@ -82,7 +82,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     const request = dispatch(api.actions.addContact(model))
       .then(_ => dispatch(api.actions.currentUser.get()))
       .then(_ => dispatch(actions.reset('contact')))
-      .then(_ => props.setAddContactOpen(null))
+      .then(_ => props.setAddContactOpen(false))
+      .then(_ => dispatch(api.actions.contacts.get()))
       .catch(standardErrorHandling)
     dispatch(actions.submit('contact', request, { fields: true }))
   },
