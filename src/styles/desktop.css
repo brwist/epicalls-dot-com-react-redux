@@ -1,0 +1,52 @@
+@media (min-width: 600px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+  .main-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 288px;
+    grid-column-gap: 56px;
+  }
+  .my-numbers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+  .my-purchased-numbers {
+    height: calc(100vh - 280px);
+    overflow: auto;
+  }
+  .call-modal-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 1rem;
+    > div {
+      padding-bottom: 8px;
+    }
+    > div.notes-form {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+    > div.purchase-button {
+      align-self: center;
+      justify-self: center;
+    }
+    > div.call-runtime-settings {
+      align-self: center;
+    }
+  }
+  .call-info-modal-content {
+      margin: 0 29px 0 !important;
+  }
+
+  .call-info-rep-logs .call-info-modal-content {
+    width: calc(100% - 402px) !important;
+    max-width: calc(100% - 402px) !important;
+  }
+
+  .call-info-manager-logs .call-info-modal-content {
+    width: calc(100% - 58px) !important;
+    max-width: calc(100% - 58px) !important;
+  }
+}

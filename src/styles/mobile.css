@@ -1,0 +1,165 @@
+@media (max-width: 600px) {
+  html, body {
+    background-color: #fff;
+  }
+  .private-layout {
+    height: calc(100vh - 47px);
+  }
+  .layout-wrapper {
+    padding: 0;
+    margin-top: 47px;
+  }
+  .header {
+    padding-left: 0 !important;
+    border-bottom: 1px solid #eee;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
+  .submenu {
+    display: none;
+  }
+  .search-form {
+    width: 100%;
+    position: inherit;
+    top: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-bottom: 1px solid #eee;
+  }
+  dl.mobile-table-dl, dl.my-numbers-dl {
+    overflow: hidden;
+    > div {
+      padding: .3rem 0;
+      &:last-child {
+        padding-bottom: 0;
+      }
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+  }
+  dl.mobile-table-dl {
+    dt {
+      font-weight: 300;
+    }
+    dd, dt {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      width: 50%;
+    }
+    &.stats {
+      dt { width: 70%; }
+      dd { width: 30%; }
+    }
+    &.webhook {
+      dt { width: 20%; }
+      dd { width: 80%; }
+    }
+    &.add-ons {
+      dt { width: 30%; }
+      dd { width: 70%; }
+    }
+  }
+  dl.my-numbers-dl {
+    dd, dt {
+      padding: 0;
+      margin: 0;
+    }
+    dt {
+      font-weight: normal;
+      font-size: 12px;
+      color: rgb(158, 158, 158);
+      margin-bottom: .6rem;
+      svg {
+        position: relative;
+        top: 2px;
+        margin-right: 5px;
+      }
+    }
+    dd {
+      font-size: 16px;
+      letter-spacing: 0.8;
+      color: #5cbece;
+    }
+  }
+  .rounded-card {
+    margin: 0 4% 1rem;
+  }
+  .my-numbers-header {
+    > div {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .go-back-button {
+    min-width: 100% !important;
+    height: 46px !important;
+  }
+  .my-account .rounded-card {
+    min-height: calc(100vh - 110px);
+  }
+  .my-account-header {
+    padding: 2rem 16px;
+    text-align: center;
+  }
+  .my-purchased-numbers-location-number {
+    flex-wrap: wrap;
+    > div {
+      width: 100%;
+    }
+  }
+  .call-modal-actions-container {
+    > button:nth-child(2) {
+      display: none !important;
+    }
+  }
+  .call-modal-title {
+    padding: 1rem 16px !important;
+    height: auto !important;
+    flex-wrap: wrap;
+    .call-timer, .client-number {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .call-modal-content {
+    padding: 1rem 16px !important;
+    > div:not(.notes-form):not(.call-from-number-form) {
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+    > div.call-runtime-settings {
+      > div {
+        width: 140px !important;
+        margin: 0 auto;
+      }
+    }
+    > div.call-from-number-form {
+      width: 75% !important;
+      margin: 0 auto;
+    }
+  }
+  .call-info-modal-body {
+    padding: 1rem 16px;
+  }
+  .header-and-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: 'center';
+    padding: .5rem 16px;
+    border-bottom: 1px solid #eee;
+    > h2 {
+      padding: 0;
+      margin: 0;
+      font-size: 23px;
+      font-weight: 300;
+      line-height: 36px;
+    }
+  }
+}

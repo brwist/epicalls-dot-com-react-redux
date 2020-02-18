@@ -1,0 +1,7 @@
+.messages-new-form {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: .8rem 20px;
+  border-top: 1px solid #e6e6e6;
+  align-items: center;
+}

@@ -1,0 +1,69 @@
+.no-plans {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.pricing-plans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+}
+
+.pricing-plan {
+  text-align: center;
+  width: 27%;
+  max-width: 325px;
+  min-width: 225px;
+  padding: 2rem 0;
+  margin: 2rem 10px;
+  position: relative;
+}
+
+.plan-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: .5rem;
+}
+
+.plan-monthly {
+  font-weight: 200;
+  color: #8b8b8b;
+}
+
+.plan-per-user-wrapper {
+  color: #fff;
+  padding: 2rem 0;
+  background-image: linear-gradient(35deg, #2dd1bc, #28a4e4);
+  border-radius: 3px;
+  width: 70%;
+  margin: 2rem auto;
+}
+
+.plan-per-user-price {
+  margin-bottom: 1rem;
+  font-size: 22px;
+}
+
+.plan-per-user-desc {
+  font-size: 18px;
+}
+
+.plan-per-local-number-price {
+  margin-bottom: 1rem;
+  font-size: 16px;
+}
+
+.plan-per-thousand-minutes-price {
+  margin-bottom: 3rem;
+  font-size: 16px;
+}
+
+.plan-current-pricing {
+  color: #8b8b8b;
+  position: absolute;
+  bottom: 79px;
+  width: 100%;
+  text-align: center;
+  font-weight: 200;
+}

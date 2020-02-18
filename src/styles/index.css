@@ -1,0 +1,231 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #555759;
+  line-height: 1;
+  background-color: #f8fafb;
+}
+
+.hide {
+  display: none !important;
+}
+
+.private-layout {
+  height: 100vh;
+}
+
+.layout-wrapper {
+  padding: 2rem 38px;
+}
+
+.intro {
+  width: 400px;
+  margin: 150px auto 0;
+  text-align: center;
+  padding: 100px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+.bolder {
+  font-weight: 500;
+}
+
+.shadow {
+  box-shadow: 0 0 65px 0 rgba(15, 90, 153, 0.22);
+}
+
+.submenu {
+  display: flex;
+  padding: 1rem 0;
+  > a {
+    font-size: 16px;
+    padding: 4px 32px;
+    text-decoration: none;
+    color: #555759;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    &.active {
+      font-weight: 500;
+      color: #37393a;
+    }
+    &:not(:last-child) {
+      border-right: 1px solid #8e8e8e;
+    }
+  }
+}
+
+h2 {
+	font-size: 23px;
+  color: #3a3c3d;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.five-px-modal-border-radius {
+  > div:first-of-type > div:first-of-type > div:first-of-type {
+    border-radius: 5px !important
+  }
+}
+
+input:invalid {
+  box-shadow: none;
+}
+
+.is-invisible {
+  display: none;
+}
+
+.flag-icon {
+  width: 1.33333333em;
+  height: 1em;
+}
+
+.first-row-padding tr:first-child td { padding-top: 16px; }
+.last-row-padding tr:last-child td { padding-bottom: 16px; }
+
+.handset-on-green { display: none; cursor: pointer }
+table.contacts-table tr:hover .handset-on-green,
+table.conferences-table tr:hover .handset-on-green,
+table.call-logs-table tr:hover .handset-on-green {
+  display: inline-block;
+}
+
+table > tfoot > tr > td { vertical-align: middle }
+
+.dial-pad-dialog {
+  padding-top: 165px !important;
+}
+
+.search-form {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 6px;
+  width: 226px;
+  padding-right: 24px;
+}
+
+.rounded-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 65px 0 rgba(20, 41, 59, 0.22);
+}
+
+.my-numbers-header {
+  font-size: 24px;
+  color: #555759;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 30px;
+  border-bottom: 1px solid #fafafa;
+  > div {
+    padding: 1rem 0;
+    width: 50%;
+  }
+}
+
+.my-numbers-content {
+  padding: 1rem 16px;
+}
+
+.my-numbers-header-help {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.23;
+  color: #737373;
+}
+
+.my-purchased-numbers-location-number {
+  display: flex;
+  flex-grow: 1;
+  > div {
+    width: 50%;
+    overflow: hidden;
+  }
+}
+
+.call-modal-actions-container {
+  padding: 0 !important;
+  display: flex !important;
+}
+
+.call-modal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 24px 41px 20px;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  height: 110px;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  .number {
+    font-weight: 300;
+    display: inline-block;
+    margin-left: 15px;
+  }
+  .call-timer {
+    text-align: right;
+    color: #a1a1a1;
+    font-size: 13px;
+    font-weight: 300;
+    .timer {
+      font-size: 23px;
+      color: #555759;
+    }
+  }
+}
+
+.my-account-header {
+  font-size: 24px;
+  color: #555759;
+  padding: 2rem 75px;
+  border-bottom: 1px solid #fafafa;
+}
+
+.call-info-modal-body {
+  padding: 2rem 41px;
+  border-top: 1px solid #eee;
+}
+
+.call-modal-dial-pad {
+  
+}
+
+.StripeElement {
+  display: block;
+  margin: 10px 0 20px 0;
+  max-width: 500px;
+  padding: 10px 14px;
+  font-size: 1em;
+  font-family: 'Source Code Pro', monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  background: white;
+}
+
+.StripeElement--focus {
+  box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px, rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+}
+
+.StripeElement.IdealBankElement,
+.StripeElement.PaymentRequestButton {
+  padding: 0;
+}
+
+.billing-overview > div {
+  max-width: 600px;
+  margin: 0 auto;
+}

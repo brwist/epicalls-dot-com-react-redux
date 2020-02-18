@@ -1,0 +1,38 @@
+.messages-message-history {
+  overflow: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-item-time {
+  font-size: 85%;
+  font-weight: 200;
+  color: rgb(136, 136, 136);
+  text-align: right;
+}
+
+.history-item-body {
+  margin-bottom: .8rem;
+}
+
+.message-history-item {
+  padding: .8rem 16px;
+  margin-bottom: .5rem;
+  border-radius: 3px;
+  &.incoming {
+    align-self: flex-start;
+    border: 1px solid rgb(214, 214, 214);
+  }
+  &:not(.incoming) {
+    align-self: flex-end;
+    background-color:rgb(231, 229, 229);
+  }
+}
+
+.history-date-item {
+  align-self: center;
+  padding: 1rem;
+  font-weight: 200;
+  color:rgb(124, 124, 124);
+}

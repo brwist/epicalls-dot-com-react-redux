@@ -1,0 +1,31 @@
+.messages-contact-info-wrapper {
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.messages-contact-info {
+  display: flex;
+  width: 100%;
+  > div {
+    > div {
+      padding: .4rem 20px;
+    }
+  }
+  .contact-info-name {
+    font-size: 120%;
+    font-weight: 500;
+  }
+  .contact-info-call-icon {
+    display: flex;
+    align-items: center;
+    > svg {
+      cursor: pointer;
+    }
+  }
+  .contact-info-search-message {
+    padding: 0 20px;
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,27 @@
+.messages-contact-list {
+  overflow: auto;
+  border-right: 1px solid #e6e6e6;
+}
+.messages-contact {
+  padding: .8rem 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e6e6e6;
+  }
+}
+.messages-contact-name {
+  font-size: 120%;
+  &.active {
+    font-weight: 600;
+  }
+}
+.messages-contact-number {
+  font-size: 80%;
+}
+.messages-contact-last-message {
+  font-size: 90%;
+  padding: .3rem 0;
+  &.unread {
+    font-weight: 600;
+  }
+}
