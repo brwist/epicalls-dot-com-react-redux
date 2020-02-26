@@ -75,6 +75,7 @@ const mapDispatchToProps = (dispatch, props) => ({
     const request = dispatch(api.actions.updateContact(model.id, model))
       .then(_ => dispatch(actions.reset('contact')))
       .then(_ => props.setContactToEdit(null))
+      .then(_ => dispatch(api.actions.contacts.get()))
       .catch(standardErrorHandling)
     dispatch(actions.submit('contact', request, { fields: true }))
   },
