@@ -20,6 +20,8 @@ import {
 import SearchForm from 'components/search-form'
 import smartify from './smartify'
 
+import EditRepModal from './edit-rep-modal'
+
 const Reps = ({
   currentUser,
   removeSalesRep,
@@ -33,6 +35,12 @@ const Reps = ({
   toggledRep,
   setToggledRep,
   removeRepLocalNumbers,
+  setRepToEditForm,
+  resetRepForm,
+  repToEdit,
+  saveRep,
+  setRepToEdit,
+  openRemoveSalesRepModal,
   match,
 }) => (
   <div className="main-dashboard">
@@ -115,14 +123,21 @@ const Reps = ({
               <TableHeaderColumn>Local Numbers</TableHeaderColumn>
               <TableHeaderColumn>Active</TableHeaderColumn>
               <TableHeaderColumn>Login as Rep</TableHeaderColumn>
+              <TableHeaderColumn></TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody displayRowCheckbox={false} stripedRows>
+          <TableBody displayRowCheckbox={false} showRowHover stripedRows>
             {reps.map(entity => (
               <TableRow
                 displayBorder={false}
+                id={`contact-${entity.id}`}
                 key={entity.id}
                 selectable={false}
+                onClick={() => {
+                  resetRepForm()
+                  setRepToEditForm(entity)
+                  // setContactToEditForm(entity)
+                }}
               >
                 <TableRowColumn>{entity.name}</TableRowColumn>
                 <TableRowColumn>{entity.email}</TableRowColumn>
@@ -148,10 +163,24 @@ const Reps = ({
                     <UserIcon name="user" />
                   </IconButton>
                 </TableRowColumn>
+                <TableRowColumn style={{ textAlign: 'center' }}>
+                  <VectorIcon
+                    name="trash"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => openRemoveSalesRepModal(entity)}
+                  />
+                </TableRowColumn>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        {repToEdit && (
+          <EditRepModal
+            repToEdit={repToEdit}
+            saveRep={saveRep}
+            setRepToEdit={setRepToEdit}
+          />
+        )}
         <AlertBox
           open={removeSalesRepModalOpen}
           yesAction={removeSalesRep}
@@ -207,6 +236,12 @@ Reps.propTypes = {
   toggleRemoveSalesRepModal: PropTypes.func.isRequired,
   toggleRep: PropTypes.func.isRequired,
   toggledRep: PropTypes.any,
+  resetRepForm: PropTypes.func.isRequired,
+  setRepToEditForm: PropTypes.func.isRequired,
+  repToEdit: PropTypes.any,
+  saveRep: PropTypes.func.isRequired,
+  setRepToEdit: PropTypes.func.isRequired,
+  openRemoveSalesRepModal: PropTypes.func.isRequired,
 }
 
 export default smartify(Reps)
