@@ -60,7 +60,7 @@ html, body {
 }
 
 h2 {
-	font-size: 23px;
+  font-size: 23px;
   color: #3a3c3d;
   font-weight: normal;
   margin-top: 0;
@@ -94,6 +94,7 @@ table.conferences-table tr:hover .handset-on-green,
 table.call-logs-table tr:hover .handset-on-green {
   display: inline-block;
 }
+table.sales-reps-table tr:hover .handset-on-green,
 
 table > tfoot > tr > td { vertical-align: middle }
 
