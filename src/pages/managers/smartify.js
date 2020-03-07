@@ -1,7 +1,8 @@
 import { createSelector, createStructuredSelector } from 'reselect'
+import { actions } from 'react-redux-form'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { withState, lifecycle } from 'recompose'
+import { withState, withHandlers, lifecycle } from 'recompose'
 import { searchQuery } from 'selectors'
 import api from 'api'
 
@@ -26,8 +27,9 @@ const selector = createStructuredSelector({
 const mapDispatchToProps = (dispatch, props) => ({
   loadPricings: () => dispatch(api.actions.pricings.get()),
   removeManager: () => {
-    dispatch(api.actions.removeManager(props.managerToRemove.id)).then(
-      props.setManagerToRemove(null),
+    dispatch(api.actions.removeManager(props.removeManagerModalOpen.id)).then(
+      props.toggleRemoveManagerModal,
+      props.setManagerToRemove({})
     )
   },
   loginAsManager: id => dispatch(api.actions.managerToken(id)),
@@ -61,10 +63,34 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(api.actions.removeManagerPricing(props.currentManager.id))
     props.setCurrentManager(null)
   },
+  setManagerToEditForm: manager => {
+    let { id, name, email } = manager
+    email = email || ''
+    name = name || ''
+    dispatch(actions.change('manager', { id, name, email }))
+    props.setManagerToEdit(manager)
+  },
+  resetManagerForm: e => dispatch(actions.reset('manager')),
+  saveManager: model => {
+    const request = dispatch(api.actions.updateManagerInfo(model.id, {
+        manager: {name: model.name}
+      }))
+      .then(_ => dispatch(actions.reset('manager')))
+      .then(_ => props.setManagerToEdit(null))
+    dispatch(actions.submit('manager', request, { fields: true }))
+  },
 })
 
 export default compose(
   withState('currentManager', 'setCurrentManager', null),
+  withState('removeManagerModalOpen', 'openRemoveManagerModal', false),
+  withState('managerToRemove', 'setManagerToRemove', {}),
+  withState('managerToEdit', 'setManagerToEdit', null),
+  withState('toggledManager', 'setToggledManager', null),
+  withHandlers({
+    toggleRemoveManagerModal: ({ openRemoveManagerModal }) => e =>
+      openRemoveManagerModal(current => !current),
+  }),
   connect(
     selector,
     mapDispatchToProps,
