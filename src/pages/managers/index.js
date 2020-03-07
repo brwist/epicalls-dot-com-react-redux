@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import IconButton from 'material-ui/IconButton'
 import VectorIcon from 'vector-icon'
+import AlertBox from 'components/alert-box'
 import AddAManager from 'widgets/add-a-manager'
 import Toggle from 'material-ui/Toggle'
 import SubMenu from 'components/sub-menu'
@@ -20,6 +21,7 @@ import { Link } from 'react-router-dom'
 import FlatButton from 'material-ui/FlatButton'
 import smartify from './smartify'
 import Subscriptions from './subscriptions'
+import EditManagerModal from './edit-manager-modal'
 
 function cardInfo({ expMonth, expYear }) {
   if (expMonth && expYear) {
@@ -37,6 +39,17 @@ const Managers = ({
   managers,
   loginAsManager,
   toggleManager,
+  setManagerToEditForm,
+  resetManagerForm,
+  managerToEdit,
+  saveManager,
+  setManagerToEdit,
+  openRemoveManagerModal,
+  removeManager,
+  removeManagerModalOpen,
+  toggleRemoveManagerModal,
+  managerToRemove,
+  setManagerToRemove,
   match,
   pricings,
 }) => (
@@ -116,6 +129,7 @@ const Managers = ({
               <TableHeaderColumn>Card</TableHeaderColumn>
               <TableHeaderColumn>Current plan</TableHeaderColumn>
               <TableHeaderColumn>Login as Manager</TableHeaderColumn>
+              <TableHeaderColumn></TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody displayRowCheckbox={false} stripedRows>
@@ -124,6 +138,11 @@ const Managers = ({
                 displayBorder={false}
                 key={entity.id}
                 selectable={false}
+                onClick={() => {
+                  resetManagerForm()
+                  setManagerToEditForm(entity)
+                  // setContactToEditForm(entity)
+                }}
               >
                 <TableRowColumn>{entity.company.name}</TableRowColumn>
                 <TableRowColumn>{entity.name}</TableRowColumn>
@@ -152,10 +171,40 @@ const Managers = ({
                     <UserIcon name="user" />
                   </IconButton>
                 </TableRowColumn>
+                <TableRowColumn style={{ textAlign: 'center' }}>
+                  <VectorIcon
+                    name="trash"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => openRemoveManagerModal(entity)}
+                  />
+                </TableRowColumn>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        {managerToEdit && (
+          <EditManagerModal
+            managerToEdit={managerToEdit}
+            saveManager={saveManager}
+            setManagerToEdit={setManagerToEdit}
+          />
+        )}
+        <AlertBox
+          open={removeManagerModalOpen}
+          yesAction={removeManager}
+          onRequestClose={toggleRemoveManagerModal}
+        >
+          Are you sure you want to delete
+          <div
+            style={{
+              fontSize: 20,
+              fontWeight: 500,
+              lineHeight: 1.35,
+            }}
+          >
+            {managerToRemove.name}?
+          </div>
+        </AlertBox>
         {currentManager && (
           <Subscriptions
             open
@@ -195,6 +244,18 @@ Managers.propTypes = {
   setCurrentManager: PropTypes.func.isRequired,
   toggleManager: PropTypes.func.isRequired,
   updateManagerPricing: PropTypes.func.isRequired,
+  
+  resetManagerForm: PropTypes.func.isRequired,
+  setManagerToEditForm: PropTypes.func.isRequired,
+  managerToEdit: PropTypes.any,
+  saveManager: PropTypes.func.isRequired,
+  setManagerToEdit: PropTypes.func.isRequired,
+  openRemoveManagerModal: PropTypes.func.isRequired,
+  removeManager: PropTypes.func.isRequired,
+  removeManagerModalOpen: PropTypes.bool.isRequired,
+  toggleRemoveManagerModal: PropTypes.func.isRequired,
+  managerToRemove: PropTypes.object,
+  setManagerToRemove: PropTypes.func.isRequired,
 }
 
 export default smartify(Managers)

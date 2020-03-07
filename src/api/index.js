@@ -83,6 +83,10 @@ const api = {
       method: 'PATCH',
       after: reloadUser,
     }),
+    updateManagerInfo: makeIdPostAction('update_manager_info', {
+      method: 'PATCH',
+      after: reloadUser,
+    }),
     managerToken: makeIdPostAction('manager_token', {
       after: loginWithNewToken,
     }),
