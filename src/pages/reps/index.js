@@ -133,11 +133,6 @@ const Reps = ({
                 id={`contact-${entity.id}`}
                 key={entity.id}
                 selectable={false}
-                onClick={() => {
-                  resetRepForm()
-                  setRepToEditForm(entity)
-                  // setContactToEditForm(entity)
-                }}
               >
                 <TableRowColumn>{entity.name}</TableRowColumn>
                 <TableRowColumn>{entity.email}</TableRowColumn>
@@ -165,8 +160,17 @@ const Reps = ({
                 </TableRowColumn>
                 <TableRowColumn style={{ textAlign: 'center' }}>
                   <VectorIcon
+                    name="edit"
+                    style={{ cursor: 'pointer', padding: '8px' }}
+                    onClick={() => {
+                      resetRepForm()
+                      setRepToEditForm(entity)
+                      // setContactToEditForm(entity)
+                    }}
+                  />
+                  <VectorIcon
                     name="trash"
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', padding: '10px' }}
                     onClick={() => openRemoveSalesRepModal(entity)}
                   />
                 </TableRowColumn>

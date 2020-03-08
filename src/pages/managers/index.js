@@ -138,11 +138,6 @@ const Managers = ({
                 displayBorder={false}
                 key={entity.id}
                 selectable={false}
-                onClick={() => {
-                  resetManagerForm()
-                  setManagerToEditForm(entity)
-                  // setContactToEditForm(entity)
-                }}
               >
                 <TableRowColumn>{entity.company.name}</TableRowColumn>
                 <TableRowColumn>{entity.name}</TableRowColumn>
@@ -173,8 +168,18 @@ const Managers = ({
                 </TableRowColumn>
                 <TableRowColumn style={{ textAlign: 'center' }}>
                   <VectorIcon
+                    name="edit"
+                    style={{ cursor: 'pointer', padding: '8px' }}
+                    onClick={
+                      () => {
+                        resetManagerForm()
+                        setManagerToEditForm(entity)
+                      }
+                    }
+                  />
+                  <VectorIcon
                     name="trash"
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', padding: '10px' }}
                     onClick={() => openRemoveManagerModal(entity)}
                   />
                 </TableRowColumn>
