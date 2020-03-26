@@ -25,6 +25,8 @@ const makeSendFileAction = makeSendFileActionCreator(endpoint, fetch)
 
 const api = {
   actions: {
+    // Subdomains
+    company: makeAction('company', 'company'),
     // Users
     login: makePostAction('user_token', { after: saveToken }),
     signup: makePostAction('signup'),
@@ -246,6 +248,7 @@ const api = {
     ),
   },
   reducers: {
+    company: makeReducer('company'),
     users: makeReducer('users'),
     contacts: makeReducer('contacts'),
     localNumbers: makeReducer('localNumbers'),
