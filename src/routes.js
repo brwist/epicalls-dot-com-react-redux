@@ -45,7 +45,7 @@ const PrivateRoute = makeLayoutRoute(PrivateLayout, { loginComponent: Login })
 const HomeRedirect = () => <Redirect push to="/" />
 
 const Routes = props => {
-  if(props.company !== [] && !props.company.company) {
+  if(props.company && !props.company.company) {
     return (
       <NotFound />
     )
