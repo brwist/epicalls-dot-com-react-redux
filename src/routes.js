@@ -44,132 +44,125 @@ const PrivateRoute = makeLayoutRoute(PrivateLayout, { loginComponent: Login })
 
 const HomeRedirect = () => <Redirect push to="/" />
 
-const Routes = props => {
-  if(props.company && !props.company.company) {
-    return (
-      <NotFound />
-    )
-  }
-  return (
-    <Switch>
-      <PrivateRoute
-        adminPage={Managers}
-        exact
-        managerPage={Reps}
-        page={UpcomingCalls}
-        path="/"
-      />
-      <PrivateRoute
-        adminPage={Admins}
-        exact
-        managerPage={HomeRedirect}
-        page={HomeRedirect}
-        path="/admins"
-      />
-      <PrivateRoute exact page={ChangeName} path="/my-account/change-name" />
-      <PrivateRoute exact page={ChangeEmail} path="/my-account/change-email" />
-      <PrivateRoute
-        exact
-        page={ChangePassword}
-        path="/my-account/change-password"
-      />
-      <PrivateRoute exact page={MyAccount} path="/my-account" />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={ManagerCallLogs}
-        page={CallLogs}
-        path="/call-logs"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={HomeRedirect}
-        page={Contacts}
-        path="/contacts"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={ManagerNumbers}
-        page={MyNumbers}
-        path="/my-numbers"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={ManagerUsage}
-        page={HomeRedirect}
-        path="/manager-usage/:year?/:month?"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={AddOns}
-        page={HomeRedirect}
-        path="/add-ons"
-      />
-      <PrivateRoute exact page={ConfirmEmail} path="/confirm-email/:id/:email" />
-      <PrivateRoute
-        exact
-        managerPage={Webhooks}
-        page={HomeRedirect}
-        path="/webhooks"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={HomeRedirect}
-        page={UpcomingCalls}
-        path="/upcoming-calls"
-      />
-      <PrivateRoute exact page={MakeACall} path="/make-a-call" />
-      <PrivateRoute exact page={AddRep} path="/add-rep" />
-      <PrivateRoute exact page={AddManager} path="/add-manager" />
-      <PrivateRoute exact page={AddAdmin} path="/add-admin" />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={Conferences}
-        page={RepConferences}
-        path="/conferences"
-      />
-      <PrivateRoute exact page={ChoosePricing} path="/pricing/:link" />
-      <PrivateRoute
-        adminPage={Pricing}
-        exact
-        managerPage={HomeRedirect}
-        page={HomeRedirect}
-        path="/pricing"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={Plans}
-        page={HomeRedirect}
-        path="/plans"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={Billing}
-        page={HomeRedirect}
-        path="/billing"
-      />
-      <PrivateRoute
-        adminPage={HomeRedirect}
-        exact
-        managerPage={HomeRedirect}
-        page={Messages}
-        path="/messages"
-      />
-      <Route component={Signup} path="/signup" />
-      <Route component={ResetPassword} path="/reset-password" />
-      <Route component={PasswordReset} path="/password-reset/:id/:email" />
-      <Route component={Inactive} path="/inactive" />
-      <Route component={NotFound} />
-    </Switch>
-  )
-}
+const Routes = () => (
+  <Switch>
+    <PrivateRoute
+      adminPage={Managers}
+      exact
+      managerPage={Reps}
+      page={UpcomingCalls}
+      path="/"
+    />
+    <PrivateRoute
+      adminPage={Admins}
+      exact
+      managerPage={HomeRedirect}
+      page={HomeRedirect}
+      path="/admins"
+    />
+    <PrivateRoute exact page={ChangeName} path="/my-account/change-name" />
+    <PrivateRoute exact page={ChangeEmail} path="/my-account/change-email" />
+    <PrivateRoute
+      exact
+      page={ChangePassword}
+      path="/my-account/change-password"
+    />
+    <PrivateRoute exact page={MyAccount} path="/my-account" />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={ManagerCallLogs}
+      page={CallLogs}
+      path="/call-logs"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={HomeRedirect}
+      page={Contacts}
+      path="/contacts"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={ManagerNumbers}
+      page={MyNumbers}
+      path="/my-numbers"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={ManagerUsage}
+      page={HomeRedirect}
+      path="/manager-usage/:year?/:month?"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={AddOns}
+      page={HomeRedirect}
+      path="/add-ons"
+    />
+    <PrivateRoute exact page={ConfirmEmail} path="/confirm-email/:id/:email" />
+    <PrivateRoute
+      exact
+      managerPage={Webhooks}
+      page={HomeRedirect}
+      path="/webhooks"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={HomeRedirect}
+      page={UpcomingCalls}
+      path="/upcoming-calls"
+    />
+    <PrivateRoute exact page={MakeACall} path="/make-a-call" />
+    <PrivateRoute exact page={AddRep} path="/add-rep" />
+    <PrivateRoute exact page={AddManager} path="/add-manager" />
+    <PrivateRoute exact page={AddAdmin} path="/add-admin" />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={Conferences}
+      page={RepConferences}
+      path="/conferences"
+    />
+    <PrivateRoute exact page={ChoosePricing} path="/pricing/:link" />
+    <PrivateRoute
+      adminPage={Pricing}
+      exact
+      managerPage={HomeRedirect}
+      page={HomeRedirect}
+      path="/pricing"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={Plans}
+      page={HomeRedirect}
+      path="/plans"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={Billing}
+      page={HomeRedirect}
+      path="/billing"
+    />
+    <PrivateRoute
+      adminPage={HomeRedirect}
+      exact
+      managerPage={HomeRedirect}
+      page={Messages}
+      path="/messages"
+    />
+    <Route component={Signup} path="/signup" />
+    <Route component={ResetPassword} path="/reset-password" />
+    <Route component={PasswordReset} path="/password-reset/:id/:email" />
+    <Route component={Inactive} path="/inactive" />
+    <Route component={NotFound} />
+  </Switch>
+)
 
 export default Routes
